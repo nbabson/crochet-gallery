@@ -2,17 +2,24 @@
 <html lang="en">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0" />
-
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.0/moment.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/css/bootstrap.min.css" />
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+		<style type="text/css">
+			nav {
+                                margin-top:0px;
+				margin-bottom:-10px;
+			}
+		</style>
 
 	</head>
 	<body>
-          <p>Crochet Gallery</p>
           {{#testdata}}
+          <div class="view" style="background-image: url({{background_picture}}); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+          <p>Crochet Gallery</p>
           <img src={{picture}} width="500" height="500"/>
 	</body>
         <script type="text/javascript"> 

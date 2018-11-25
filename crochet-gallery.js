@@ -13,6 +13,7 @@ server.get('/crochet-gallery.html', function(req, res) {
                 res.write(mustache.render(data.toString(), {
                     'testdata': [{'test': 'hello',
                     'picture': 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/crochet.png' }] 
+                    'background_picture': 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/storm.png' }] 
                 }));
                 res.end();
         });
