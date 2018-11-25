@@ -18,6 +18,7 @@
     "dependencies": {
         "express": "^4.16.4",
         "mustache": "^3.0.1"
-    }
-} 
-
+    },
+    "directories": "./pictures",
+    "files": "./*"    
+}

@@ -10,17 +10,10 @@ server.get('/crochet-gallery.html', function(req, res) {
 		res.writeHead(200, {
 			'Content-Type': 'text/html'
 		});
-
-		res.write(mustache.render(data.toString(), {
-			'objectStocks': [
-				{ 'strName': Math.random().toString(36).substr(2), 'dblValue': Math.random() * 1000.0, 'dblChange': (Math.random() * 20.0) - 10.0, 'intTime': Math.round(Math.random() * 2000000000000), 'intVolume': Math.round(Math.random() * 1000000000000) },
-				{ 'strName': Math.random().toString(36).substr(2), 'dblValue': Math.random() * 1000.0, 'dblChange': (Math.random() * 20.0) - 10.0, 'intTime': Math.round(Math.random() * 2000000000000), 'intVolume': Math.round(Math.random() * 1000000000000) },
-				{ 'strName': Math.random().toString(36).substr(2), 'dblValue': Math.random() * 1000.0, 'dblChange': (Math.random() * 20.0) - 10.0, 'intTime': Math.round(Math.random() * 2000000000000), 'intVolume': Math.round(Math.random() * 1000000000000) }
-			]
-		}));
-
-		res.end();
-	});
+                res.write(mustache.render(data.toString(), {
+                    'testdata': [{'test': 'hello', 'picture': 'crochet.jpg'} ] }));
+                res.end();
+        });
 });
 
 server.listen(8080);

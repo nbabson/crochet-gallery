@@ -8,31 +8,20 @@
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.0/moment.min.js"></script>
+
 	</head>
 	<body>
-          <table border="1">
-            <tr>
-              <th>name</th>
-              <th>value</th>
-              <th>change</th>
-              <th>time</th>
-              <th>volume</th>
-           </tr>
-           {{#objectStocks}}  
-           <tr>
-             <td>{{strName}}</td>
-               <td id="dval">{{dblValue}}</td>
-             <td class="color">{{dblChange}}</td>
-             <td>{{intTime}}</td>
-             <td>{{intVolume}}</td>
-           </tr>  
-           {{/objectStocks}}
-         </table>
+
+          <p>Hello</p>
+          <img src="[<0;35;19M
+          <img src="pictures/crochet.png" width="300" height="300">
+          
+          {{#testdata}}
+          <p>{{test}}</p>
+          <img src={{picture}} width="100" height="100"/>
 	</body>
         <script type="text/javascript"> 
-          jQuery('td.dval').Math.ceil({{dblValue}}/100)*100;
-          jQuery('td.color').css('background-color', '#BC6772');
-          jQuery('td.color').next().css('background-color', '#ADC4A2');
-          jQuery('td.color').next().next().css('background-color', '#BC6772');
         </script>  
+        {{/testdata}}
+        <p>Goodbye</p>
 </html>
