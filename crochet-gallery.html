@@ -13,14 +13,25 @@
                                 margin-top:0px;
 				margin-bottom:-10px;
 			}
+                        section .img {
+                                opacity:1.0;
+                        }
+                        #first {
+                                opacity:1.0;
+                        }
 		</style>
+                        
 
 	</head>
 	<body>
           {{#testdata}}
-          <div class="view" style="background-image: url({{background_picture}}); background-repeat: no-repeat; background-size: cover; background-position: center center;">
-          <p>Crochet Gallery</p>
-          <img src={{picture}} width="500" height="500"/>
+          <div style="background-image: url({{background_picture}}); background-repeat: no-repeat; background-size: cover; background-position: center; background-attachment: fixed; height: 100%;">
+     <!--     <img  src={{background_picture}}  opacity="0.3"  height="100%" style="background-image; opacity: 0.3;">  -->
+            <p>Crochet Gallery</p>
+            <div id="first">
+            <img src={{picture}} width="500" height="500">
+            </div>
+         </div> 
 	</body>
         <script type="text/javascript"> 
         </script>  
