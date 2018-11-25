@@ -6,14 +6,14 @@
     "author": "Neil Babson",
     "repository": {
         "type": "git",
-        "url": "https://github.com/nbabson/crochet-gallery",
+        "url": "https://github.com/nbabson/crochet-gallery"
     },
     "engines": {
         "node": ">=8"
     },
     "scripts": {
         "deploy": "gcloud app deploy",
-        "start": "node crochet_gallery.js"
+        "start": "node crochet-gallery.js"
     },
     "dependencies": {
         "express": "^4.16.4",
