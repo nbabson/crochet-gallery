@@ -11,13 +11,26 @@ server.get('/crochet-gallery.html', function(req, res) {
 			'Content-Type': 'text/html'
 		});
                 res.write(mustache.render(data.toString(), {
-                    'testdata': [{'test': 'hello',
+                    'homepage': [{'test': 'hello',
                     'picture': 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/crochet.png'  ,
                     'background_picture': 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/storm2.png' }] 
                 }));
                 res.end();
         });
 });
+
+server.get('/menu.html', function(req, res) {
+        fs.readFile('./menu.html', function(err, data) {
+                res.writeHead(200, {
+                        'Content-Type': 'text/html'
+                });
+                res.write(mustache.render(data.toString(), {
+                     'menupage': [{ }]      
+                }));
+                res.end();
+        });
+});        
+
 
 server.listen(8080);
 

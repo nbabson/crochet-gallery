@@ -13,27 +13,59 @@
                                 margin-top:0px;
 				margin-bottom:-10px;
 			}
-                        section .img {
-                                opacity:1.0;
-                        }
-                        #first {
-                                opacity:1.0;
-                        }
 		</style>
                         
 
 	</head>
 	<body>
-          {{#testdata}}
-          <div style="background-image: url({{background_picture}}); background-repeat: no-repeat; background-size: cover; background-position: center; background-attachment: fixed; height: 100%;">
-     <!--     <img  src={{background_picture}}  opacity="0.3"  height="100%" style="background-image; opacity: 0.3;">  -->
-            <p>Crochet Gallery</p>
-            <div id="first">
-            <img src={{picture}} width="500" height="500">
-            </div>
-         </div> 
+    <!-- Static navbar at top has three links on the left and two links on the right -->
+          <nav class="navbar navbar-expand-md navbar-dark bg-dark static-top"> 
+            <a class="navbar-brand" href="#">Crochet Gallery</a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+              </button>
+
+              <div class="collapse navbar-collapse" id="crochet_site_navbar">
+                <ul class="navbar-nav mr-auto">
+                  <li class="nav-item active">
+                    <a class="nav-link" href="#">home<span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="menu.html">gallery</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link " href="#">contact</a>
+                  </li>
+                </ul>
+                <ul class="nav navbar-nav">   
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">register</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link " href="#">login</a>
+                  </li>
+                </ul>  
+              </div>
+            </nav>
+            <br>
+            <p>
+            <main role="main">
+
+              <!-- Main jumbotron for home page -->
+              <div class="jumbotron" style="padding-top:64px; padding:20px;">    <!--   padding-top:2rem;">   -->
+                <div class="container">
+                  <h1><center>Crochet Gallery</center></h1>
+
+                  {{#homepage}}
+                  <div style="background-image: url({{background_picture}}); background-repeat: no-repeat; background-size: cover; background-position: center; background-attachment: fixed; height: 100%;">
+                  <!--     <img  src={{background_picture}}  opacity="0.3"  height="100%" style="background-image; opacity: 0.3;">  -->
+                    <center><img src={{picture}} width="650" height="650" text-align="center"></center> 
+                  </div> 
+                  {{/homepage}}
+     
+                </div> 
+              </div>  
+            </main>
+          </nav>
 	</body>
-        <script type="text/javascript"> 
-        </script>  
-        {{/testdata}}
 </html>
