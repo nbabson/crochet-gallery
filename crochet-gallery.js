@@ -17,6 +17,8 @@ server.get('/crochet-gallery.html', function(req, res) {
                 }));
                 res.end();
         });
+  //      var bach = new Audio('Anh049.m4a');
+    //    bach.play();
 });
 
 server.get('/menu.html', function(req, res) {
