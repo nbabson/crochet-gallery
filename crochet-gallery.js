@@ -38,7 +38,8 @@ server.get('/contact.html', function(req, res) {
                         'Content-Type': 'text/html'
                 });
                 res.write(mustache.render(data.toString(), {
-                     'contact': [{ }]      
+                     'contactpage': [{'neil': 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/storm3.png',
+                     'kibbie': 'http://www.blockmrecords.org/images/artists/Kibbie.jpg' }]      
                 }));
                 res.end();
         });
