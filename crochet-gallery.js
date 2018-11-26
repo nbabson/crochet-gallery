@@ -17,8 +17,6 @@ server.get('/crochet-gallery.html', function(req, res) {
                 }));
                 res.end();
         });
-  //      var bach = new Audio('Anh049.m4a');
-    //    bach.play();
 });
 
 server.get('/menu.html', function(req, res) {
@@ -28,6 +26,19 @@ server.get('/menu.html', function(req, res) {
                 });
                 res.write(mustache.render(data.toString(), {
                      'menupage': [{ }]      
+                }));
+                res.end();
+        });
+});        
+
+
+server.get('/contact.html', function(req, res) {
+        fs.readFile('./contact.html', function(err, data) {
+                res.writeHead(200, {
+                        'Content-Type': 'text/html'
+                });
+                res.write(mustache.render(data.toString(), {
+                     'contact': [{ }]      
                 }));
                 res.end();
         });
