@@ -33,7 +33,7 @@ server.get('/menu.html', function(req, res) {
                         'Content-Type': 'text/html'
                 });
                 res.write(mustache.render(data.toString(), {
-                     'menupage': [{ }]      
+                     'menupage': [{'hat': 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/crochet.png' }]      
                 }));
                 res.end();
         });

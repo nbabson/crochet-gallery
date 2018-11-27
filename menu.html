@@ -5,17 +5,15 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0" />
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.0/moment.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/css/bootstrap.min.css" />
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
-
-
 	</head>
-        <style>
-        </style>
+
+     <!--   <style>
+        </style> -->
 	<body>
           <audio src="http://www.blockmrecords.org/bach/audio/mp3/BWV0573.mp3" autoplay ></audio>
-    <!-- Static navbar at top has three links on the left and two links on the right -->
+          <!-- Navbar -->
           <nav class="navbar navbar-expand-md navbar-dark bg-dark static-top"> 
             <a class="navbar-brand" href="#">Crochet Gallery</a>
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
@@ -44,18 +42,27 @@
                 </ul>  
               </div>
             </nav>
+
             <br>
             <p>
             <main role="main">
 
               <!-- Main jumbotron for home page -->
-              <div class="jumbotron" style="padding-top:64px; padding:20px;">    <!--   padding-top:2rem;">   -->
-                <div class="container">
                   <h1><center>Menu</center></h1>
+                  {{#menupage}}  
+            <!--      <ul class="list-inline gallery">
 
-     
-                </div> 
-              </div>  
+                    <li><img class="img-rounded img-thumbnail zoom" src={{hat}}></li>  
+                    <li><img class="img-circle zoom" src={{hat}}></li>  
+                  </ul>  -->
+              <!--      <center><img src={{hat}} height="200" width="200"></center>  -->
+                  <div class="view overlay zoom">
+                    <img src={{hat}} class="img-fluid" alt="smaple image">
+                      <div class="mask flex-center">
+                        <p class="white-text">Zoom effect</p>
+                      </div>  
+                  </div>  
+                  {{/menupage}}
             </main>
           </nav>
 	</body>
