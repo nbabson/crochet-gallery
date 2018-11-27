@@ -5,6 +5,14 @@ var fs = require('fs');
 
 var server = express();
 
+server.get('/', function(req, res) {
+        res.writeHead(302, {
+                'Location': '/crochet-gallery.html',
+                'Content-Type': 'text/plain'
+        });
+        res.end();
+});        
+
 server.get('/crochet-gallery.html', function(req, res) {
 	fs.readFile('./crochet-gallery.html', function(err, data) {
 		res.writeHead(200, {
@@ -48,4 +56,4 @@ server.get('/contact.html', function(req, res) {
 
 server.listen(8080);
 
-console.log('go ahead and open "http://localhost:8080/crochet-gallery.html" in your browser');
+console.log('go ahead and open "http://localhost:8080" in your browser');
