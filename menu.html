@@ -7,10 +7,54 @@
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/css/bootstrap.min.css" />
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
+                <link href="css/mdb.min.css" rel="stylesheet">
+
+		<style type="text/css">
+
+                ul.gallery{    
+                    margin-left: 3vw;     
+                    margin-right:3vw;  
+                }    
+
+.zoom {      
+    -webkit-transition: all 0.35s ease-in-out;    
+    -moz-transition: all 0.35s ease-in-out;    
+transition: all 0.35s ease-in-out;     
+cursor: -webkit-zoom-in;      
+cursor: -moz-zoom-in;      
+cursor: zoom-in;  
+}     
+
+.zoom:hover,  
+    .zoom:active,   
+    .zoom:focus {
+        /**adjust scale to desired size, 
+          add browser prefixes**/
+        -ms-transform: scale(7.5);    
+        -moz-transform: scale(7.5);  
+        -webkit-transform: scale(7.5);  
+        -o-transform: scale(7.5);  
+transform: scale(7.5);    
+position:relative;      
+         z-index:100;  
+    }
+
+/**To keep upscaled images visible on mobile, 
+  increase left & right margins a bit**/  
+@media only screen and (max-width: 768px) {   
+    ul.gallery {      
+        margin-left: 15vw;       
+        margin-right: 15vw;
+    }
+
+    /**TIP: Easy escape for touch screens,
+      give gallery's parent container a cursor: pointer.**/
+    .DivName {cursor: pointer}
+}
+
+		</style>
 	</head>
 
-     <!--   <style>
-        </style> -->
 	<body>
           <audio src="http://www.blockmrecords.org/bach/audio/mp3/BWV0573.mp3" autoplay ></audio>
           <!-- Navbar -->
@@ -47,22 +91,61 @@
             <p>
             <main role="main">
 
-              <!-- Main jumbotron for home page -->
-                  <h1><center>Menu</center></h1>
-                  {{#menupage}}  
-            <!--      <ul class="list-inline gallery">
+              <h1><center>Menu</center></h1>
+              {{#menupage}}  
+              
+     <!--         <ul class="list-inline gallery">  -->
 
-                    <li><img class="img-rounded img-thumbnail zoom" src={{hat}}></li>  
-                    <li><img class="img-circle zoom" src={{hat}}></li>  
-                  </ul>  -->
-              <!--      <center><img src={{hat}} height="200" width="200"></center>  -->
-                  <div class="view overlay zoom">
-                    <img src={{hat}} class="img-fluid" alt="smaple image">
-                      <div class="mask flex-center">
-                        <p class="white-text">Zoom effect</p>
-                      </div>  
+            <!--    <li><div class="col-md-4"></div></li> 
+                <li><center><img class="img-circle zoom" src={{hat}}></center></li> --> 
+                <br>
+                <div class="row">
+                  <div class="col-md-2"></div><img class="img-rounded zoom" src={{hat}}>  
+                  <div class="col-md-2"></div><img class="img-circle zoom" src={{hat2}} height="50" width="50">  
+                </div>  
+        <!--        <li><img class="zoom" src={{hat}></li>  -->
+      <!--        </ul> -->
+   <!--   
+              <center><img src={{hat}} height="200" width="200"></center> 
+     
+              <div class="view overlay zoom">
+                <img src={{hat}} class="img-fluid" alt="smaple image">
+                  <div class="mask flex-center">
+                    <p class="white-text">Zoom effect</p>
                   </div>  
-                  {{/menupage}}
+              </div>  
+
+              <div class="container-fluid">
+                <div class="row">  
+                  <div class="col-md-4">
+                    <img src={{hat}}>
+                  </div>
+                </div>
+              </div>
+
+              <div class="container-fluid">
+                <div class="row">  
+                  <div class="col-md-4"></div>
+                    <div class="col-md-4"><img class="img-zoom-container" src={{hat}}></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="view overlay zoom">
+                <img src={{hat}} class="img-fluid" alt="">
+              </div> 
+
+              <div class="container">
+              <hr>
+                <div class="row">
+                  <div class="col-md-2 img-hover">
+                    <img class="img-responsive img-rounded" style="width:40px;height:40px;" src={{hat}}>
+                  </div>
+                </div>
+              </div>  
+-->
+
+              {{/menupage}}
             </main>
           </nav>
 	</body>
