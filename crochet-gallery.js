@@ -56,6 +56,20 @@ server.get('/hat.html', function(req, res) {
 });        
 
 
+server.get('/afghan.html', function(req, res) {
+        fs.readFile('./afghan.html', function(err, data) {
+                res.writeHead(200, {
+                        'Content-Type': 'text/html'
+                });
+                res.write(mustache.render(data.toString(), {
+                     "afghanpage": [{ "afghan": 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/shell-blanket.png', "desc": "Shell pattern blanket"},    
+                     {"afghan": 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/ca-blanket.png', "desc": "Cellular automata pattern afghan"}]
+                }));
+                res.end();
+        });
+});        
+
+
 server.get('/contact.html', function(req, res) {
         fs.readFile('./contact.html', function(err, data) {
                 res.writeHead(200, {
