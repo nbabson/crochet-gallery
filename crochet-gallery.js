@@ -27,18 +27,27 @@ server.get('/crochet-gallery.html', function(req, res) {
         });
 });
 
+
 server.get('/menu.html', function(req, res) {
         fs.readFile('./menu.html', function(err, data) {
                 res.writeHead(200, {
                         'Content-Type': 'text/html'
                 });
                 res.write(mustache.render(data.toString(), {
-                     "menupage": [{ 'hat': 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/crochet_small.png'},    
-                     {'hat': 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/storm3.png'},
-                     {"test": "1"},
-                     {"test": "2"},
-                     {"test": "3"},
-                     {"test": "4" }]      
+                     "menupage": [{ "music": 'http://www.blockmrecords.org/bach/audio/mp3/BWV0573.mp3'}]
+                }));
+                res.end();
+        });
+});        
+
+server.get('/hat.html', function(req, res) {
+        fs.readFile('./hat.html', function(err, data) {
+                res.writeHead(200, {
+                        'Content-Type': 'text/html'
+                });
+                res.write(mustache.render(data.toString(), {
+                     "hatpage": [{ "hat": 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/crochet_small.png'},    
+                     {"hat": 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/storm3.png'}]
                 }));
                 res.end();
         });

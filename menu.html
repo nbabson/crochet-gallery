@@ -1,80 +1,42 @@
-
 <!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0" />
+                <meta http-equiv="x-ua-compatible" content="ie=edge">
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/css/bootstrap.min.css" />
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
-                <link href="css/mdb.min.css" rel="stylesheet">
+                <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.4.1/css/mdb.min.css" rel="stylesheet"/>
 
 		<style type="text/css">
 
-                ul.gallery{    
-                    margin-left: 3vw;     
-                    margin-right:3vw;  
-                }    
-
-.zoom {      
-    -webkit-transition: all 0.35s ease-in-out;    
-    -moz-transition: all 0.35s ease-in-out;    
-transition: all 0.35s ease-in-out;     
-cursor: -webkit-zoom-in;      
-cursor: -moz-zoom-in;      
-cursor: zoom-in;  
-}     
-
-.zoom:hover,  
-    .zoom:active,   
-    .zoom:focus {
-        /**adjust scale to desired size, 
-          add browser prefixes**/
-        -ms-transform: scale(7.5);    
-        -moz-transform: scale(7.5);  
-        -webkit-transform: scale(7.5);  
-        -o-transform: scale(7.5);  
-transform: scale(7.5);    
-position:relative;      
-         z-index:100;  
-    }
-
-/**To keep upscaled images visible on mobile, 
-  increase left & right margins a bit**/  
-@media only screen and (max-width: 768px) {   
-    ul.gallery {      
-        margin-left: 15vw;       
-        margin-right: 15vw;
-    }
-
-    /**TIP: Easy escape for touch screens,
-      give gallery's parent container a cursor: pointer.**/
-    .DivName {cursor: pointer}
-}
                   body {
-                    background-color: #e1bee7;
+                    background-color: #eeff41;
                   }  
-		</style>
+
+	        </style>
 	</head>
 
 	<body>
-          <audio src="http://www.blockmrecords.org/bach/audio/mp3/BWV0573.mp3" autoplay ></audio>
+          {{#menupage}}
+          <audio src={{music}} autoplay ></audio>
+          {{/menupage}}
           <!-- Navbar -->
           <nav class="navbar navbar-expand-md navbar-dark bg-dark static-top"> 
             <a class="navbar-brand" href="#">Crochet Gallery</a>
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+              <button class="navbar-toggler" type="button" data-toggle="collapse">
                <span class="navbar-toggler-icon"></span>
               </button>
-
               <div class="collapse navbar-collapse" id="crochet_site_navbar">
                 <ul class="navbar-nav mr-auto">
-                  <li class="nav-item">
+                  <li class="nav-item ">
                     <a class="nav-link" href="crochet-gallery.html">home</a>
                   </li>
                   <li class="nav-item active">
                     <a class="nav-link" href="#">gallery<span class="sr-only">(current)</span></a>
                   </li>
-                  <li class="nav-item">
+                  <li class="nav-item ">
                     <a class="nav-link " href="contact.html">contact</a>
                   </li>
                 </ul>
@@ -88,15 +50,16 @@ position:relative;
                 </ul>  
               </div>
             </nav>
-
-            <br>
-            <main>
-
+            <main role="main">
+              <br>
               <h1><center>Menu</center></h1>
-                {{#menupage}}
-                  <b>{{test}}<br></b>
-                {{/menupage}} 
-                  <b>More testing</b>  
+              <div class="jumbotron jumbotron-fluid" style="padding-top:64px; padding:180px; border-radius: 20px; background-color:#f4ff81">    
+                <a class="btn btn-unique btn-block btn-info" href="hat.html"><h2>Hats</h2></a>
+                <button type="button" class="btn btn-deep-orange btn-block"><h2>Afghans</h2> </button>
+                <button type="button" class="btn btn-cyan btn-block"><h2>Amigurumi</h2> </button>
+                <button type="button" class="btn btn-purple btn-block"><h2>Trivets</h2> </button>
+                <button type="button" class="btn btn-mdb-color btn-block"><h2>Clothing</h2> </button>
+              </div>      
             </main>
 	</body>
 </html>
