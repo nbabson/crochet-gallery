@@ -20,8 +20,8 @@ server.get('/crochet-gallery.html', function(req, res) {
 		});
                 res.write(mustache.render(data.toString(), {
                     'homepage': [{'test': 'hello',
-                    'picture': 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/crochet.png'  ,
-                    'background_picture': 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/storm2.png' }] 
+                    'picture': 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/crochet.png'  ,
+                    'background_picture': 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/storm2.png' }] 
                 }));
                 res.end();
         });
@@ -33,8 +33,12 @@ server.get('/menu.html', function(req, res) {
                         'Content-Type': 'text/html'
                 });
                 res.write(mustache.render(data.toString(), {
-                     'menupage': [{'hat': 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/crochet_small.png',    
-                     'hat2': 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/storm3.png' }]      
+                     "menupage": [{ 'hat': 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/crochet_small.png'},    
+                     {'hat': 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/storm3.png'},
+                     {"test": "1"},
+                     {"test": "2"},
+                     {"test": "3"},
+                     {"test": "4" }]      
                 }));
                 res.end();
         });
@@ -47,7 +51,7 @@ server.get('/contact.html', function(req, res) {
                         'Content-Type': 'text/html'
                 });
                 res.write(mustache.render(data.toString(), {
-                     'contactpage': [{'neil': 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/storm3.png',
+                     'contactpage': [{'neil': 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/storm3.png',
                      'kibbie': 'http://www.blockmrecords.org/images/artists/Kibbie.jpg' }]      
                 }));
                 res.end();

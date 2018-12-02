@@ -90,13 +90,26 @@ position:relative;
             </nav>
 
             <br>
-            <main>
+            <main role="main">
 
               <h1><center>Menu</center></h1>
-                {{#menupage}}
+<!--              {{#menupage}}  -->
+              
+
+            <!--    <li><div class="col-md-4"></div></li> 
+                <li><center><img class="img-circle zoom" src={{hat}}></center></li> --> 
+    <!--            <br>
+                <div class="row">
+                  <div class="col-md-2"></div><img class="rounded zoom" src={{hat}} height="50" width="50">    -->
+<!--                  <div class="col-md-2"></div><img class="rounded-circle zoom" src={{hat2}} height="50" width="50"> --> 
+    <!--            </div> --> 
+<!--                {{/menupage}}  -->
+  <!--              {{#menupage}}
                   <b>{{test}}<br></b>
-                {{/menupage}} 
-                  <b>More testing</b>  
+                {{/menupage}}  -->
+                  <b>More testing</b>
+<!--              {{/menupage}}    -->
             </main>
+          </nav>
 	</body>
 </html>
