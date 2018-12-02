@@ -1,5 +1,7 @@
+'use strict';
 
 var express = require('express');
+var session = require('express-session');
 var mustache = require('mustache');
 var fs = require('fs');
 
@@ -46,8 +48,8 @@ server.get('/hat.html', function(req, res) {
                         'Content-Type': 'text/html'
                 });
                 res.write(mustache.render(data.toString(), {
-                     "hatpage": [{ "hat": 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/crochet_small.png'},    
-                     {"hat": 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/storm3.png'}]
+                     "hatpage": [{ "hat": 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/crochet_small.png', "desc": "not really a hat"},    
+                     {"hat": 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/storm3.png', "desc": "also not really a hat"}]
                 }));
                 res.end();
         });
