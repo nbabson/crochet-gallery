@@ -62,8 +62,8 @@ server.get('/afghan.html', function(req, res) {
                         'Content-Type': 'text/html'
                 });
                 res.write(mustache.render(data.toString(), {
-                     "afghanpage": [{ "afghan": 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/shell-blanket.png', "desc": "Shell pattern blanket"},    
-                     {"afghan": 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/ca-blanket.png', "desc": "Cellular automata pattern afghan"}]
+                     "afghanpage": [{ "afghan": 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/shell-blanket.jpg', "desc": "Shell pattern blanket"},    
+                     {"afghan": 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/ca-blanket.jpg', "desc": "Cellular automata pattern afghan"}]
                 }));
                 res.end();
         });
