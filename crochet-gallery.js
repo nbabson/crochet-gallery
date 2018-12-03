@@ -27,9 +27,9 @@ server.get('/crochet-gallery.html', function(req, res) {
 			'Content-Type': 'text/html'
 		});
                 res.write(mustache.render(data.toString(), {
-                    'homepage': [{'test': 'hello',
+                    'homepage': [{
                     'picture': 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/crochet.png'  ,
-                    'background_picture': 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/storm2.png' }] 
+                    'background_picture': 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/background.jpg' }] 
                 }));
                 res.end();
         });
