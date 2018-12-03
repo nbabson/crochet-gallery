@@ -86,6 +86,21 @@ server.post('/remove', function(req, res) {
         res.end();
 });
 
+
+server.get('/checkout.html', function(req, res) {
+        fs.readFile('./checkout.html', function(err, data) {
+                res.writeHead(200, {
+                        'Content-Type': 'text/html'
+                });
+                var length = items.length;
+                var message = 'You have ' + length + ' items in your cart. \nUnfortunatly checkout has not been implemented.';
+                res.write(mustache.render(data.toString(), {
+                            "checkoutpage": [{ "message": message }]
+                }));
+                res.end();
+        });
+});        
+
 server.get('/hat.html', function(req, res) {
         fs.readFile('./hat.html', function(err, data) {
                 res.writeHead(200, {
@@ -109,6 +124,19 @@ server.get('/afghan.html', function(req, res) {
                 res.write(mustache.render(data.toString(), {
                      "afghanpage": [{ "item": 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/shell-blanket.jpg', "desc": "Shell pattern blanket"},    
                      {"item": 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/ca-blanket.jpg', "desc": "Cellular automata pattern afghan"}]
+                }));
+                res.end();
+        });
+});        
+
+
+server.get('/amigurumi.html', function(req, res) {
+        fs.readFile('./amigurumi.html', function(err, data) {
+                res.writeHead(200, {
+                        'Content-Type': 'text/html'
+                });
+                res.write(mustache.render(data.toString(), {
+                     "amigurumipage": [{ "item": 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/baby-toy.jpg', "desc": "Geometric baby toy"}]
                 }));
                 res.end();
         });
