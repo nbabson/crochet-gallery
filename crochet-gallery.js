@@ -153,7 +153,7 @@ server.get('/trivets.html', function(req, res) {
                         'Content-Type': 'text/html'
                 });
                 res.write(mustache.render(data.toString(), {
-                     "trivetspage": [{ "item": 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/baby-toy.jpg', "desc": "Geometric baby toy"}]
+                     "trivetspage": [{ "item": 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/trivet-1.jpg', "desc": "Trivet 1"}]
                 }));
                 res.end();
         });
@@ -168,7 +168,8 @@ server.get('/clothing.html', function(req, res) {
                 res.write(mustache.render(data.toString(), {
                      "clothingpage": [{ "item": 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/waves-shawl.jpg', "desc": "Waves shawl"},
                                       { "item": 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/vines-shawl.jpg', "desc": "Vines shawl"},
-                                      { "item": 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/go-piece-sweater.jpg', "desc": "Go piece sweater"}]
+                                      { "item": 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/go-piece-sweater.jpg', "desc": "Go piece sweater"},
+                                      { "item": 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/tie.jpg', "desc": "Tie"}]
                 }));
                 res.end();
         });
