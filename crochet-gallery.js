@@ -1,11 +1,17 @@
 'use strict';
 
 var express = require('express');
+var bodyParser = require("body-parser");
 var session = require('express-session');
 var mustache = require('mustache');
 var fs = require('fs');
 
 var server = express();
+var items = [];
+var images = [];
+
+server.use(bodyParser.urlencoded({ extended: false }));
+server.use(bodyParser.json());
 
 server.get('/', function(req, res) {
         res.writeHead(302, {
@@ -29,6 +35,14 @@ server.get('/crochet-gallery.html', function(req, res) {
         });
 });
 
+server.get('/cart.html', function(req, res) {
+        fs.readFile('./cart.html', function(err, data) {
+                res.writeHead(200, {
+                        'Content-Type': 'text/html'
+                });
+                res.end();
+        });
+});        
 
 server.get('/menu.html', function(req, res) {
         fs.readFile('./menu.html', function(err, data) {
@@ -41,6 +55,19 @@ server.get('/menu.html', function(req, res) {
                 res.end();
         });
 });        
+
+server.post('/buy', function(req, res) {
+        console.log(req.body.item);
+        console.log(req.body.image);
+        items.push(req.body.item);
+        images.push(req.body.image);
+        res.writeHead(302, {
+                'Location': req.body.last,
+                'Content-Type': 'text/plain'
+        });
+        res.end();
+});
+
 
 server.get('/hat.html', function(req, res) {
         fs.readFile('./hat.html', function(err, data) {
