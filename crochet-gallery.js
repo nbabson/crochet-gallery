@@ -123,7 +123,9 @@ server.get('/afghan.html', function(req, res) {
                 });
                 res.write(mustache.render(data.toString(), {
                      "afghanpage": [{ "item": 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/shell-blanket.jpg', "desc": "Shell pattern blanket"},    
-                     {"item": 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/ca-blanket.jpg', "desc": "Cellular automata pattern afghan"}]
+                     {"item": 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/ca-blanket.jpg', "desc": "Cellular automata pattern afghan"},
+                     {"item": 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/kitty-blanket.jpg', "desc": "Scraps cat blanket"},
+                     {"item": 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/sanford-blanket.jpg', "desc": "Unfinished Sanford afghan"}]
                 }));
                 res.end();
         });
@@ -164,7 +166,9 @@ server.get('/clothing.html', function(req, res) {
                         'Content-Type': 'text/html'
                 });
                 res.write(mustache.render(data.toString(), {
-                     "clothingpage": [{ "item": 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/baby-toy.jpg', "desc": "Geometric baby toy"}]
+                     "clothingpage": [{ "item": 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/waves-shawl.jpg', "desc": "Waves shawl"},
+                                      { "item": 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/vines-shawl.jpg', "desc": "Vines shawl"},
+                                      { "item": 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/go-piece-sweater.jpg', "desc": "Go piece sweater"}]
                 }));
                 res.end();
         });
