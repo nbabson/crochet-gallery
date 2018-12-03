@@ -136,7 +136,35 @@ server.get('/amigurumi.html', function(req, res) {
                         'Content-Type': 'text/html'
                 });
                 res.write(mustache.render(data.toString(), {
-                     "amigurumipage": [{ "item": 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/baby-toy.jpg', "desc": "Geometric baby toy"}]
+                     "amigurumipage": [{ "item": 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/baby-toy.jpg', "desc": "Geometric baby toy"},
+                                       { "item": 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/turtle.jpg', "desc": "Beverly turtle"},
+                                       { "item": 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/whale.jpg', "desc": "Barnaby baby blue whale"} ]
+                }));
+                res.end();
+        });
+});        
+
+
+server.get('/trivets.html', function(req, res) {
+        fs.readFile('./trivets.html', function(err, data) {
+                res.writeHead(200, {
+                        'Content-Type': 'text/html'
+                });
+                res.write(mustache.render(data.toString(), {
+                     "trivetspage": [{ "item": 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/baby-toy.jpg', "desc": "Geometric baby toy"}]
+                }));
+                res.end();
+        });
+});        
+
+
+server.get('/clothing.html', function(req, res) {
+        fs.readFile('./clothing.html', function(err, data) {
+                res.writeHead(200, {
+                        'Content-Type': 'text/html'
+                });
+                res.write(mustache.render(data.toString(), {
+                     "clothingpage": [{ "item": 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/baby-toy.jpg', "desc": "Geometric baby toy"}]
                 }));
                 res.end();
         });
