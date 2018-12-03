@@ -108,6 +108,7 @@ server.get('/hat.html', function(req, res) {
                 });
                 res.write(mustache.render(data.toString(), {
                      "hatpage": [{ "item": "https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/orange-cabbage.jpg", "desc": "Orange cabbage patch hat"},    
+                     {"item": "https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/cat-beret.jpg", "desc": "Cat beret"},
                      {"item": "https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/purple-cabbage.jpg", "desc": "Purple cabbbage patch hat"}]
                 }));
                 res.end();
@@ -154,11 +155,11 @@ server.get('/trivets.html', function(req, res) {
                 });
                 res.write(mustache.render(data.toString(), {
                      "trivetspage": [{ "item": 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/trivet-1.jpg', "desc": "Trivet 1"},
-                     "trivetspage": [{ "item": 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/trivet-2.jpg', "desc": "Trivet 2"},
-                     "trivetspage": [{ "item": 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/trivet-3.jpg', "desc": "Trivet 3"},
-                     "trivetspage": [{ "item": 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/spiral-trivet.jpg', "desc": "Spiral trivit"},
-                     "trivetspage": [{ "item": 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/bauble-trivet.jpg', "desc": "Bauble trivit"},
-                     "trivetspage": [{ "item": 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/flower-trivet.jpg', "desc": "Flower trivet"}]
+                                     { "item": 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/trivet-2.jpg', "desc": "Trivet 2"},
+                                     { "item": 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/trivet-3.jpg', "desc": "Trivet 3"},
+                                     { "item": 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/spiral-trivet.jpg', "desc": "Spiral trivit"},
+                                     { "item": 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/bauble-trivet.jpg', "desc": "Bauble trivit"},
+                                     { "item": 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/flower-trivet.jpg', "desc": "Flower trivet"}]
                 }));
                 res.end();
         });
