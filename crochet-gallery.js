@@ -66,8 +66,6 @@ server.get('/menu.html', function(req, res) {
 });        
 
 server.post('/buy', function(req, res) {
-        console.log(req.body.item);
-        console.log(req.body.image);
         items.push(req.body.description);
         images.push(req.body.image);
         res.writeHead(302, {
@@ -77,6 +75,16 @@ server.post('/buy', function(req, res) {
         res.end();
 });
 
+server.post('/remove', function(req, res) {
+        var index = items.indexOf(req.body.description);
+        items.splice(index, 1);
+        images.splice(index, 1);
+        res.writeHead(302, {
+                'Location': './cart.html',
+                'Content-Type': 'text/plain'
+        });
+        res.end();
+});
 
 server.get('/hat.html', function(req, res) {
         fs.readFile('./hat.html', function(err, data) {
