@@ -40,9 +40,18 @@ server.get('/cart.html', function(req, res) {
                 res.writeHead(200, {
                         'Content-Type': 'text/html'
                 });
+                //var output = '';
+                var output2 = {};
+                var output = [];
+                for (var i = 0; i < items.length; ++i) {
+                  output.push({'image': images[i], 'desc': items[i]}); 
+                }
+                res.write(mustache.render(data.toString(), { "cartpage":  output }));
                 res.end();
         });
 });        
+
+
 
 server.get('/menu.html', function(req, res) {
         fs.readFile('./menu.html', function(err, data) {
@@ -59,7 +68,7 @@ server.get('/menu.html', function(req, res) {
 server.post('/buy', function(req, res) {
         console.log(req.body.item);
         console.log(req.body.image);
-        items.push(req.body.item);
+        items.push(req.body.description);
         images.push(req.body.image);
         res.writeHead(302, {
                 'Location': req.body.last,
@@ -75,12 +84,13 @@ server.get('/hat.html', function(req, res) {
                         'Content-Type': 'text/html'
                 });
                 res.write(mustache.render(data.toString(), {
-                     "hatpage": [{ "hat": 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/crochet_small.png', "desc": "not really a hat"},    
-                     {"hat": 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/storm3.png', "desc": "also not really a hat"}]
+                     "hatpage": [{ "item": "https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/crochet_small.png", "desc": "not really a hat"},    
+                     {"item": "https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/storm3.png", "desc": "also not really a hat"}]
                 }));
                 res.end();
         });
 });        
+
 
 
 server.get('/afghan.html', function(req, res) {
@@ -89,8 +99,8 @@ server.get('/afghan.html', function(req, res) {
                         'Content-Type': 'text/html'
                 });
                 res.write(mustache.render(data.toString(), {
-                     "afghanpage": [{ "afghan": 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/shell-blanket.jpg', "desc": "Shell pattern blanket"},    
-                     {"afghan": 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/ca-blanket.jpg', "desc": "Cellular automata pattern afghan"}]
+                     "afghanpage": [{ "item": 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/shell-blanket.jpg', "desc": "Shell pattern blanket"},    
+                     {"item": 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/ca-blanket.jpg', "desc": "Cellular automata pattern afghan"}]
                 }));
                 res.end();
         });

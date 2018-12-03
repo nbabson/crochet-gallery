@@ -8,16 +8,44 @@
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.0/moment.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/css/bootstrap.min.css" />
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
 		<style type="text/css">
-                  body, html {
-                      height: 100%;
+                  ul.gallery{    
+                    margin-left: 3vw;     
+                    margin-right:3vw;  
+                  }    
+
+                  .zoom {      
+                    -webkit-transition: all 0.35s ease-in-out;    
+                    -moz-transition: all 0.35s ease-in-out;    
+                    transition: all 0.35s ease-in-out;     
+                    cursor: -webkit-zoom-in;      
+                    cursor: -moz-zoom-in;      
+                    cursor: zoom-in;  
+                  }     
+
+                  .zoom:hover,  
+                  .zoom:active,   
+                  .zoom:focus {
+                    /**adjust scale to desired size, add browser prefixes**/
+                    -ms-transform: scale(7.5);    
+                    -moz-transform: scale(7.5);  
+                    -webkit-transform: scale(7.5);  
+                    -o-transform: scale(7.5);  
+                    transform: scale(7.5);    
+                    position:relative;      
+                    z-index:100;  
                   }
+                  body {
+                    background-color: #18ffff;
+                  }  
+                  
 		</style>
                         
 	</head>
 	<body>
-          <audio src="http://www.blockmrecords.org/bach/audio/mp3/BWV0527i.mp3" autoplay ></audio>
+          <audio src="http://www.blockmrecords.org/bach/audio/mp3/BWV0651.mp3" autoplay ></audio>
              <!-- Navbar -->
           <nav class="navbar navbar-expand-md navbar-dark bg-dark static-top"> 
             <a class="navbar-brand" href="#">Crochet Gallery</a>
@@ -27,7 +55,7 @@
 
               <div class="collapse navbar-collapse" id="crochet_site_navbar">
                 <ul class="navbar-nav mr-auto">
-                  <li class="nav-item active">
+                  <li class="nav-item">
                     <a class="nav-link" href="crochet-gallery.html">home</a>
                   </li>
                   <li class="nav-item">
@@ -38,7 +66,7 @@
                   </li>
                 </ul>
                 <ul class="nav navbar-nav">   
-                  <li class="nav-item">
+                  <li class="nav-item active">
                     <a class="nav-link" href="#">cart<span class="sr-only">(current)</span></a>
                   </li>
                 </ul>  
@@ -46,7 +74,27 @@
             </nav>
             <br>
             <main role="main">
+              <h1><center>Cart</center></h1>
+                <br>
+                <br>
 
+                {{#cartpage}}
+                <div class="row">
+                  <div class="col-md-2"></div>
+                  <form action="/remove" method="post"> 
+                    <input type="hidden" name="description" value="{{desc}}">
+                    <input type="hidden" name="image" value="{{item}}">
+                    <button type="submit" class="btn btn-primary" value={{.}}><i class="fa fa-remove"></i></button>  
+                  </form>  
+                  <div class="col-md-1"></div>
+                  <img class="rounded zoom" src={{image}} height="50" width="50">    
+                  <div class="col-md-1"></div>
+                  <p><h1>{{desc}}</h1></p>
+                </div> 
+                <div class="row">
+                  <div class="col-md-2"><br></div>
+                </div> 
+                {{/cartpage}} 
             </main>
 	</body>
 </html>
