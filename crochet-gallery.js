@@ -112,6 +112,8 @@ server.get('/hat.html', function(req, res) {
                      {"item": "https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/flower-hat.jpg", "desc": "Flower hat"},
                      {"item": "https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/flames-hat.jpg", "desc": "Flames hat"},
                      {"item": "https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/bauble-hat.jpg", "desc": "Bauble hat"},
+                     {"item": "https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/black-fez.jpg", "desc": "Black fez"},
+                     {"item": "https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/multi-colored-beret.jpg", "desc": "Multi-colored beret"},
                      {"item": "https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/purple-cabbage.jpg", "desc": "Purple cabbbage patch hat"}]
                 }));
                 res.end();
@@ -160,6 +162,8 @@ server.get('/trivets.html', function(req, res) {
                      "trivetspage": [{ "item": 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/trivet-1.jpg', "desc": "Trivet 1"},
                                      { "item": 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/trivet-2.jpg', "desc": "Trivet 2"},
                                      { "item": 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/trivet-3.jpg', "desc": "Trivet 3"},
+                                     { "item": 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/trivet-4.jpg', "desc": "Trivet 4"},
+                                     { "item": 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/sun-trivet.jpg', "desc": "Sun trivet"},
                                      { "item": 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/spiral-trivet.jpg', "desc": "Spiral trivit"},
                                      { "item": 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/bauble-trivet.jpg', "desc": "Bauble trivit"},
                                      { "item": 'https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/flower-trivet.jpg', "desc": "Flower trivet"}]
