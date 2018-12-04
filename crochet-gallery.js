@@ -58,7 +58,7 @@ server.get('/menu.html', function(req, res) {
                         'Content-Type': 'text/html'
                 });
                 res.write(mustache.render(data.toString(), {
-                     "menupage": [{ "music": 'http://raw.githubusercontent.com/nbabson/crochet-gallery/master/music/BWV0573.m4a}]
+                     "menupage": [{ "music": 'http://raw.githubusercontent.com/nbabson/crochet-gallery/master/music/BWV0573.m4a'}]
                 }));
                 res.end();
         });
