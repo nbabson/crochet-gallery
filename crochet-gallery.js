@@ -90,7 +90,7 @@ server.post('/buy', function(req, res) {
 });
 
 server.post('/remove', function(req, res) {
-        var index = items.indexOf(req.body.description);
+        var index = req.session.items.indexOf(req.body.description);
         req.session.items.splice(index, 1);
         req.session.images.splice(index, 1);
         res.writeHead(302, {
