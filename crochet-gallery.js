@@ -9,6 +9,15 @@ var server = express();
 var items = [];
 var images = [];
 
+// Create session
+server.use session([
+  'store': new session.MemoryStore(),
+  'secret': 'secret',
+  'resave': false,
+  'saveUninitialized': false,
+  'cookie': { 'maxage': 1000000 }
+}));  
+
 server.use(bodyParser.urlencoded({ extended: false }));
 server.use(bodyParser.json());
 
