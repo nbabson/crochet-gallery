@@ -109,6 +109,9 @@ server.get('/hat.html', function(req, res) {
                 res.write(mustache.render(data.toString(), {
                      "hatpage": [{ "item": "https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/orange-cabbage.jpg", "desc": "Orange cabbage patch hat"},    
                      {"item": "https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/cat-beret.jpg", "desc": "Cat beret"},
+                     {"item": "https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/flower-hat.jpg", "desc": "Flower hat"},
+                     {"item": "https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/flames-hat.jpg", "desc": "Flames hat"},
+                     {"item": "https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/bauble-hat.jpg", "desc": "Bauble hat"},
                      {"item": "https://raw.githubusercontent.com/nbabson/crochet-gallery/master/images/purple-cabbage.jpg", "desc": "Purple cabbbage patch hat"}]
                 }));
                 res.end();
