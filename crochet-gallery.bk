@@ -7,13 +7,13 @@ var mustache = require('mustache');
 var fs = require('fs');
 
 var server = express();
-//var items = [];
-//var images = [];
+var items = [];
+var images = [];
 
 // Create session
 server.use(session({
   'store': new session.MemoryStore(),
-  'secret': 'Storm',
+  'secret': 'secret',
   'resave': false,
   'saveUninitialized': false,
   'cookie': { 'maxage': 1000000 }
@@ -49,11 +49,11 @@ server.get('/cart.html', function(req, res) {
                 res.writeHead(200, {
                         'Content-Type': 'text/html'
                 });
+                //var output = '';
+                var output2 = {};
                 var output = [];
-                if (req.session.items !== undefined) {
-                  for (var i = 0; i < req.session.items.length; ++i) {
-                    output.push({'image': req.session.images[i], 'desc': req.session.items[i]}); 
-                  }
+                for (var i = 0; i < items.length; ++i) {
+                  output.push({'image': images[i], 'desc': items[i]}); 
                 }
                 res.write(mustache.render(data.toString(), { "cartpage":  output }));
                 res.end();
@@ -75,13 +75,8 @@ server.get('/menu.html', function(req, res) {
 });        
 
 server.post('/buy', function(req, res) {
-        if (req.session.items === undefined) {
-          req.session.items = [];
-          req.session.images = [];
-        }
-
-        req.session.items.push(req.body.description);
-        req.session.images.push(req.body.image);
+        items.push(req.body.description);
+        images.push(req.body.image);
         res.writeHead(302, {
                 'Location': req.body.last,
                 'Content-Type': 'text/plain'
@@ -91,8 +86,8 @@ server.post('/buy', function(req, res) {
 
 server.post('/remove', function(req, res) {
         var index = items.indexOf(req.body.description);
-        req.session.items.splice(index, 1);
-        req.session.images.splice(index, 1);
+        items.splice(index, 1);
+        images.splice(index, 1);
         res.writeHead(302, {
                 'Location': './cart.html',
                 'Content-Type': 'text/plain'
@@ -106,14 +101,10 @@ server.get('/checkout.html', function(req, res) {
                 res.writeHead(200, {
                         'Content-Type': 'text/html'
                 });
-                if (req.session.items === undefined) {
-                  req.session.items = [];
-                  req.session.images = [];
-                }
-                var length = req.session.items.length;
+                var length = items.length;
                 var message = 'You have ' + length + ' items in your cart. Unfortunatly checkout has not been implemented. Cart has been emptied.';
-                req.session.items = [];
-                req.session.images = [];
+                items = [];
+                images = [];
                 res.write(mustache.render(data.toString(), {
                             "checkoutpage": [{ "message": message }]
                 }));
