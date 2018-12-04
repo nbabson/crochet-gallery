@@ -1,3 +1,4 @@
+'use strict';
 
 var express = require('express');
 var bodyParser = require("body-parser");
@@ -10,7 +11,7 @@ var items = [];
 var images = [];
 
 // Create session
-server.use session([
+server.use(session({
   'store': new session.MemoryStore(),
   'secret': 'secret',
   'resave': false,
