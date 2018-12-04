@@ -1,24 +1,41 @@
-
-
 <!DOCTYPE html>
+
+<!-- 
+Neil Babson
+October 2018
+PSU - Web Development Project
+contact.html
+Contact page of front-end for crochet gallery website.
+
+View project at : http://babson-crochet.appspot.com
+
+This project allows users to browse through a gallery of some of my crochet
+projects and select items to put in their shopping cart from a website hosted
+by Google App Engine.  These items are not actually for sale and the checkout
+page doesn't involve any financial transaction
+-->
+
 <html lang="en">
 	<head>
-          <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-          <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0" />
-          <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-          <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/css/bootstrap.min.css" />
-          <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+                <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0" />
+                <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+                <!-- Uses bootstrap for layout and navbar -->
+                <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/css/bootstrap.min.css" />
+                <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
 	</head>
 
         <style>
           body {
-            background-color: #b9f6ca;
+                /* Set page color */  
+                background-color: #b9f6ca;
           }
         </style>
 
 	<body>
+          <!-- Play audio track -->
           <audio src="http://raw.githubusercontent.com/nbabson/crochet-gallery/master/music/BWV0545i.m4a" autoplay ></audio>
-          <!-- Navbar -->
+          <!-- Navbar has five links for navigating the site -->
           <nav class="navbar navbar-expand-md navbar-dark bg-dark static-top"> 
             <a class="navbar-brand" href="#">Crochet Gallery</a>
               <button class="navbar-toggler" type="button" data-toggle="collapse">
@@ -46,10 +63,12 @@
                 </ul>  
               </div>
             </nav>
+
             <br>
             <main role="main">
 
                   <h1><center>Contact</center></h1>
+                  <!-- Display round images from mustache list of Neil and organist Dr. James Kibbie -->
                   {{#contactpage}}
                     <center><img class="rounded-circle" src={{neil}} height="200" width="200"></center>
                     <div>
@@ -66,7 +85,6 @@
                   {{/contactpage}}
      
                 </div> 
-       <!--       </div>  -->
             </main>
 	</body>
 </html>

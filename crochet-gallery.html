@@ -1,10 +1,26 @@
 <!DOCTYPE html>
+
+<!-- 
+Neil Babson
+October 2018
+PSU - Web Development Project
+crochet-gallery.html
+Home page of front-end for crochet gallery website.
+
+View project at : http://babson-crochet.appspot.com
+
+This project allows users to browse through a gallery of some of my crochet
+projects and select items to put in their shopping cart from a website hosted
+by Google App Engine.  These items are not actually for sale and the checkout
+page doesn't involve any financial transaction
+-->
+
 <html lang="en">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0" />
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.0/moment.min.js"></script>
+                <!-- Uses bootstrap for layout and navbar -->
 		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/css/bootstrap.min.css" />
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
 
@@ -14,14 +30,16 @@
                   }
 		</style>
                         
+                /<!-- Display full screen transparent background image served by mustache object -->
                 {{#homepage}}
                   <div class="view" style="background-image: url({{background_picture}}); background-repeat: no-repeat; background-size: cover; background-position: center center; background-attachment: fixed; height: 100%;">  
                 {{/homepage}}
-
 	</head>
+
 	<body>
+          <!-- Play audio track -->
           <audio src="http://raw.githubusercontent.com/nbabson/crochet-gallery/master/music/BWV0527i.m4a" autoplay ></audio>
-             <!-- Navbar -->
+          <!-- Navbar has five links for navigating the site -->
           <nav class="navbar navbar-expand-md navbar-dark bg-dark static-top"> 
             <a class="navbar-brand" href="#">Crochet Gallery</a>
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
@@ -50,11 +68,11 @@
                 </ul>  
               </div>
             </nav>
+
             <br>
             <main role="main">
-
                <h1><center>Crochet Gallery</center></h1>
-
+               <!-- Display home page image served by mustache object. -->
                {{#homepage}}
                  <center><img src={{picture}} width="650" height="650" text-align="center"></center> 
                {{/homepage}}

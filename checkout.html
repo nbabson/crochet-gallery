@@ -1,27 +1,44 @@
-
 <!DOCTYPE html>
+
+<!-- 
+Neil Babson
+October 2018
+PSU - Web Development Project
+checkout.html
+Checkout page of front-end for crochet gallery website.
+This page displays a message that checkout is unimplemented and empties the 
+user's shopping cart.
+
+View project at : http://babson-crochet.appspot.com
+
+This project allows users to browse through a gallery of some of my crochet
+projects and select items to put in their shopping cart from a website hosted
+by Google App Engine.  These items are not actually for sale and the checkout
+page doesn't involve any financial transaction
+-->
+
 <html lang="en">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0" />
-                <meta http-equiv="x-ua-compatible" content="ie=edge">
+<!--                <meta http-equiv="x-ua-compatible" content="ie=edge">   -->
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+                <!-- Uses bootstrap for layout and navbar -->
 		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/css/bootstrap.min.css" />
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
-                <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.4.1/css/mdb.min.css" rel="stylesheet"/>
+ <!--               <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.4.1/css/mdb.min.css" rel="stylesheet"/>  -->
 
 		<style type="text/css">
-
                   body {
+                    /* Set page color */  
                     color: white;  
                     background-color: black;
                   }  
-
 	        </style>
 	</head>
 
 	<body>
-          <!-- Navbar -->
+          <!-- Navbar has five links for navigating the site -->
           <nav class="navbar navbar-expand-md navbar-dark bg-dark static-top"> 
             <a class="navbar-brand" href="#">Crochet Gallery</a>
               <button class="navbar-toggler" type="button" data-toggle="collapse">
@@ -52,6 +69,7 @@
 
             <br>
             <main>
+              <!-- Output message contained in mustache object -->
               {{#checkoutpage}}
                 <div class = row>
                   <div class= col-md-1></div>

@@ -1,23 +1,35 @@
-
 <!DOCTYPE html>
+
+<!-- 
+Neil Babson
+October 2018
+PSU - Web Development Project
+hat.html
+Hat crochet project page of front-end for crochet gallery website allows user to select items
+to add to their shopping cart.
+
+View project at : http://babson-crochet.appspot.com
+
+This project allows users to browse through a gallery of some of my crochet
+projects and select items to put in their shopping cart from a website hosted
+by Google App Engine.  These items are not actually for sale and the checkout
+page doesn't involve any financial transaction
+-->
+
 <html lang="en">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0" />
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+                <!-- Uses bootstrap for layout and navbar -->
 		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/css/bootstrap.min.css" />
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
-                <link href="css/mdb.min.css" rel="stylesheet">
+                <!-- Use font-awesome shopping cart icon on buttons to add items to cart -->
 		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
 		<style type="text/css">
-
-                  ul.gallery{    
-                    margin-left: 3vw;     
-                    margin-right:3vw;  
-                  }    
-
                   .zoom {      
+                    /* css for zoom feature which maginfies images 7.5 times when they are hovered over */
                     -webkit-transition: all 0.35s ease-in-out;    
                     -moz-transition: all 0.35s ease-in-out;    
                     transition: all 0.35s ease-in-out;     
@@ -29,7 +41,7 @@
                   .zoom:hover,  
                   .zoom:active,   
                   .zoom:focus {
-                    /**adjust scale to desired size, add browser prefixes**/
+                    /* adjust scale to desired size, add browser prefixes */
                     -ms-transform: scale(7.5);    
                     -moz-transform: scale(7.5);  
                     -webkit-transform: scale(7.5);  
@@ -40,6 +52,7 @@
                   }
 
                   body {
+                    /* Set page color */  
                     background-color: #e1bee7;
                   }  
                   
@@ -47,8 +60,9 @@
 	</head>
 
 	<body>
+          <!-- Play audio track -->
           <audio src="http://raw.githubusercontent.com/nbabson/crochet-gallery/master/music/BWV0655.m4a" autoplay ></audio>
-          <!-- Navbar -->
+          <!-- Navbar has five links for navigating the site -->
           <nav class="navbar navbar-expand-md navbar-dark bg-dark static-top"> 
             <a class="navbar-brand" href="#">Crochet Gallery</a>
               <button class="navbar-toggler" type="button" data-toggle="collapse">
@@ -84,9 +98,13 @@
               <h1><center>Hats</center></h1>
                 <br>
                 <br>
+                <!-- Display mustache list of hat crochet items --> 
                 {{#hatpage}}
                 <div class="row">
                   <div class="col-md-2"></div>
+                  <!-- Redirect to /buy if user clicks cart button in front of an item.
+                       Hidden inputs post item's description and image url as well as this gallery
+                       page to return to after putting item in cart. --> 
                   <form action="/buy" method="post"> 
                     <input type="hidden" name="description" value="{{desc}}">
                     <input type="hidden" name="image" value="{{item}}">
@@ -94,6 +112,7 @@
                     <button type="submit" class="btn btn-primary" value={{.}}><i class="fa fa-shopping-cart"></i></button>  
                   </form>  
                   <div class="col-md-1"></div>
+                  <!-- Display zoomable thumbnail image -->
                   <img class="rounded zoom" src={{item}} height="50" width="50">    
                   <div class="col-md-1"></div>
                   <p><h1>{{desc}}</h1></p>

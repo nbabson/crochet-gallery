@@ -1,17 +1,37 @@
 <!DOCTYPE html>
+
+<!-- 
+Neil Babson
+October 2018
+PSU - Web Development Project
+menu.html
+Gallery menu front-end for crochet gallery website allows user to select from gallery catagories:
+        hats, afghans, amigurumi, trivets, clothing
+
+View project at : http://babson-crochet.appspot.com
+
+This project allows users to browse through a gallery of some of my crochet
+projects and select items to put in their shopping cart from a website hosted
+by Google App Engine.  These items are not actually for sale and the checkout
+page doesn't involve any financial transaction
+-->
+
 <html lang="en">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0" />
                 <meta http-equiv="x-ua-compatible" content="ie=edge">
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+                <!-- Uses bootstrap for layout and navbar -->
 		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/css/bootstrap.min.css" />
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
+                <!-- mdbootstrap provides additional button options -->
                 <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.4.1/css/mdb.min.css" rel="stylesheet"/>
 
 		<style type="text/css">
 
                   body {
+                    /* Set page color */  
                     background-color: #eeff41;
                   }  
 
@@ -19,10 +39,11 @@
 	</head>
 
 	<body>
+          <!-- Got music url as mustache list from back-end --> 
           {{#menupage}}
           <audio src={{music}} autoplay ></audio>
           {{/menupage}}
-          <!-- Navbar -->
+          <!-- Navbar has five links for navigating the site -->
           <nav class="navbar navbar-expand-md navbar-dark bg-dark static-top"> 
             <a class="navbar-brand" href="#">Crochet Gallery</a>
               <button class="navbar-toggler" type="button" data-toggle="collapse">
@@ -50,10 +71,13 @@
                 </ul>  
               </div>
             </nav>
+
             <main role="main">
               <br>
               <h1><center>Menu</center></h1>
+              <!-- Uses jumbotron to constrain the block buttons to the mid region of the screen. -->
               <div class="jumbotron jumbotron-fluid" style="padding-top:64px; padding:180px; border-radius: 20px; background-color:#f4ff81">    
+                <!-- Buttons navigate to the five rooms of the crochet gallery. --> 
                 <a class="btn btn-unique btn-block btn-info" href="hat.html"><h2>Hats</h2></a>
                 <a class="btn btn-deep-orange btn-block btn-info" href="afghan.html"><h2>Afghans</h2></a>
                 <a class="btn btn-cyan btn-block" href="amigurumi.html"><h2>Amigurumi</h2> </a>

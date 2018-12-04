@@ -1,27 +1,39 @@
-'use strict';
+/*
+Neil Babson
+October 2018
+PSU - Web Development Project
+Back-end for crochet gallery website
 
-var express = require('express');
-var bodyParser = require("body-parser");
-var session = require('express-session');
-var mustache = require('mustache');
-var fs = require('fs');
+View project at : http://babson-crochet.appspot.com
 
-var server = express();
-//var items = [];
-//var images = [];
+This project allows users to browse through a gallery of some of my crochet
+projects and select items to put in their shopping cart from a website hosted
+by Google App Engine.  These items are not actually for sale and the checkout
+page doesn't involve any financial transaction
+*/
 
-// Create session
+
+var express = require('express');             // Routing request framework
+var bodyParser = require("body-parser");      // Middleware to retrieve post dat from front-end
+var session = require('express-session');     // Module to store user shopping cart session data
+var mustache = require('mustache');           // Template system to serve dynamic lists of crochet items to front-end 
+var fs = require('fs');                       // File system module to access front-end html files                  
+
+var server = express();                 
+
+// Create session to keep contents of shopping cart
 server.use(session({
   'store': new session.MemoryStore(),
   'secret': 'Storm',
   'resave': false,
   'saveUninitialized': false,
-  'cookie': { 'maxage': 1000000 }
+  'cookie': {} 
 }));  
 
 server.use(bodyParser.urlencoded({ extended: false }));
 server.use(bodyParser.json());
 
+// Redirect to home page html file
 server.get('/', function(req, res) {
         res.writeHead(302, {
                 'Location': '/crochet-gallery.html',
@@ -30,6 +42,8 @@ server.get('/', function(req, res) {
         res.end();
 });        
 
+
+// Home page uses mustache list to serve urls for background and foreground images
 server.get('/crochet-gallery.html', function(req, res) {
 	fs.readFile('./crochet-gallery.html', function(err, data) {
 		res.writeHead(200, {
@@ -44,12 +58,17 @@ server.get('/crochet-gallery.html', function(req, res) {
         });
 });
 
+
+// Creates and serves a  mustache list of the contents of the user's shopping cart from the two session variables
+//      session.items : a list of item description strings
+//      session.images: a list of item image urls
 server.get('/cart.html', function(req, res) {
         fs.readFile('./cart.html', function(err, data) {
                 res.writeHead(200, {
                         'Content-Type': 'text/html'
                 });
                 var output = [];
+                // If the session variables are undefined do not try to create list
                 if (req.session.items !== undefined) {
                   for (var i = 0; i < req.session.items.length; ++i) {
                     output.push({'image': req.session.images[i], 'desc': req.session.items[i]}); 
@@ -61,7 +80,7 @@ server.get('/cart.html', function(req, res) {
 });        
 
 
-
+// Serve music url as mustache object to gallery menu front-end
 server.get('/menu.html', function(req, res) {
         fs.readFile('./menu.html', function(err, data) {
                 res.writeHead(200, {
@@ -74,14 +93,20 @@ server.get('/menu.html', function(req, res) {
         });
 });        
 
+
+// When user puts item in cart from any gallery page they redirect here to store object in session variables before returning to gallery page
 server.post('/buy', function(req, res) {
+        // Initialize session variables if they do not exist
         if (req.session.items === undefined) {
           req.session.items = [];
           req.session.images = [];
         }
 
+        // Retrieve image and description of selected item from body-parser middleware
+        // and push onto session lists
         req.session.items.push(req.body.description);
         req.session.images.push(req.body.image);
+        // Return to gallery page where item was selected
         res.writeHead(302, {
                 'Location': req.body.last,
                 'Content-Type': 'text/plain'
@@ -89,10 +114,14 @@ server.post('/buy', function(req, res) {
         res.end();
 });
 
+
+// If user drops an item from their cart look up the index of the first item matching its description
+// and use splice to remove it from both session lists
 server.post('/remove', function(req, res) {
         var index = req.session.items.indexOf(req.body.description);
         req.session.items.splice(index, 1);
         req.session.images.splice(index, 1);
+        // Return to shopping cart front-end page
         res.writeHead(302, {
                 'Location': './cart.html',
                 'Content-Type': 'text/plain'
@@ -101,14 +130,17 @@ server.post('/remove', function(req, res) {
 });
 
 
+// Because the crochet gallery is an example project and not a real store, the checkout page merely
+// gives the user a not implemented message as well as emptying their cart of all items which they 
+// are not really allowed to purchase.
 server.get('/checkout.html', function(req, res) {
         fs.readFile('./checkout.html', function(err, data) {
                 res.writeHead(200, {
                         'Content-Type': 'text/html'
                 });
+                // Make sure session variable is defined before checking its length attribute
                 if (req.session.items === undefined) {
                   req.session.items = [];
-                  req.session.images = [];
                 }
                 var length = req.session.items.length;
                 var message = 'You have ' + length + ' items in your cart. Unfortunatly checkout has not been implemented. Cart has been emptied.';
@@ -121,6 +153,8 @@ server.get('/checkout.html', function(req, res) {
         });
 });        
 
+
+// Serve a mustache list of hat descriptions and image urls. Items can be added to the front-end gallery by adding to this list.
 server.get('/hat.html', function(req, res) {
         fs.readFile('./hat.html', function(err, data) {
                 res.writeHead(200, {
@@ -141,7 +175,7 @@ server.get('/hat.html', function(req, res) {
 });        
 
 
-
+// Serve a mustache list of afghan descriptions and image urls. Items can be added to the front-end gallery by adding to this list.
 server.get('/afghan.html', function(req, res) {
         fs.readFile('./afghan.html', function(err, data) {
                 res.writeHead(200, {
@@ -158,6 +192,7 @@ server.get('/afghan.html', function(req, res) {
 });        
 
 
+// Serve a mustache list of amigurumi (crocheted toys) descriptions and image urls. Items can be added to the front-end gallery by adding to this list.
 server.get('/amigurumi.html', function(req, res) {
         fs.readFile('./amigurumi.html', function(err, data) {
                 res.writeHead(200, {
@@ -173,6 +208,7 @@ server.get('/amigurumi.html', function(req, res) {
 });        
 
 
+// Serve a mustache list of trivet (granny squares) descriptions and image urls. Items can be added to the front-end gallery by adding to this list.
 server.get('/trivets.html', function(req, res) {
         fs.readFile('./trivets.html', function(err, data) {
                 res.writeHead(200, {
@@ -193,6 +229,7 @@ server.get('/trivets.html', function(req, res) {
 });        
 
 
+// Serve a mustache list of non-hat clothing descriptions and image urls. Items can be added to the front-end gallery by adding to this list.
 server.get('/clothing.html', function(req, res) {
         fs.readFile('./clothing.html', function(err, data) {
                 res.writeHead(200, {
@@ -209,6 +246,7 @@ server.get('/clothing.html', function(req, res) {
 });        
 
 
+// Serve a mustache list with urls for images of Neil and of the organist James Kibbie whose free Bach recordings are featured in the gallery pages
 server.get('/contact.html', function(req, res) {
         fs.readFile('./contact.html', function(err, data) {
                 res.writeHead(200, {
@@ -224,5 +262,6 @@ server.get('/contact.html', function(req, res) {
 
 
 server.listen(8080);
-
+// Message for local testing. They finished site runs through Google App Engine at 
+//      http://babson-crochet.appspot.com
 console.log('go ahead and open "http://localhost:8080" in your browser');
