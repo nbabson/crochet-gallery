@@ -1,4 +1,3 @@
-'use strict';
 
 var express = require('express');
 var bodyParser = require("body-parser");
@@ -93,7 +92,9 @@ server.get('/checkout.html', function(req, res) {
                         'Content-Type': 'text/html'
                 });
                 var length = items.length;
-                var message = 'You have ' + length + ' items in your cart. \nUnfortunatly checkout has not been implemented.';
+                var message = 'You have ' + length + ' items in your cart. Unfortunatly checkout has not been implemented. Cart has been emptied.';
+                items = [];
+                images = [];
                 res.write(mustache.render(data.toString(), {
                             "checkoutpage": [{ "message": message }]
                 }));
