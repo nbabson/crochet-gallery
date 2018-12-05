@@ -1,6 +1,6 @@
 /*
 Neil Babson
-October 2018
+November 2018
 PSU - Web Development Project
 Back-end for crochet gallery website
 
