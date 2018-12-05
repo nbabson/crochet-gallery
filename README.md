@@ -19,24 +19,24 @@ University of Michigan.
 ## usage
 
 You can clone the project using 
-...
+```
 git clone https://github.com/nbabson/crochet-gallery
-...
+```
 Install dependencies and run the app locally with the commads
-...
+```
 cd crochet-gallery
 npm install
 npm start
-...
+```
 You will be prompted to open a browser to localhost:8080 to view the site.
 A navigation bar at the top of the browser page can be used to navigate the
 site. Hovering over crocheted goods images will cause them to zoom and buttons 
 in front the images will add or drop them from the user's cart.
 
 The site will also be hosted for a limited time by Google App Engine at the url
-...
+```
 http://babson-crochet.appspot.com
-...
+```
 
 ## license
 
