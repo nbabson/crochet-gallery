@@ -6,7 +6,7 @@ The body-parser and sessions modules are used to retrieve post data and store
 session information. Mustache templates share dynamic content with the html
 front-end laid out using the bootstrap framework.
 
-The project is a gallery of some of my corchet projects. The user can 
+The project is a gallery of some of my crochet projects. The user can 
 navigate among five catagories of crochet items putting those that they 
 choose into or out of their personal cart. The items are not actually for sale,
 so when the user navigates to the checkout page they are informed that checkout
